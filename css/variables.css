@@ -29,6 +29,7 @@
 */
 body {
   --color-accent: green;
-  --font-secondary: oswald, var(--font-primary);
+  --font-primary: "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --font-secondary: 'Mulish', var(--font-primary);
   --line-height: 1.3;
 }
