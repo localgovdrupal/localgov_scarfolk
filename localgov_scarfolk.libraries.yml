@@ -2,3 +2,8 @@ variables:
   css:
     base:
       css/variables.css: { weight: 200 }
+
+overrides:
+  css:
+    theme:
+      css/overrides.css: { weight: 200 }
