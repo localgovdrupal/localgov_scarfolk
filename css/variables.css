@@ -3,14 +3,14 @@
   In the base theme, we have no fonts importing so that the theme is as fast
   as possible, and so we are not loading fonts that are then going to be
   overridden in a subtheme in any case.
-  Want a font? Load it here, or in the html.html.twig file which should give you an 
-  even faster loading time. Loading the font via html.html.twig is the preferred 
+  Want a font? Load it here, or in the html.html.twig file which should give you an
+  even faster loading time. Loading the font via html.html.twig is the preferred
   method. That file can be found in your /templates/layout directory.
 */
 
-/* 
-  e.g. 
-  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap"); 
+/*
+  e.g.
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap");
 */
 
 /*
@@ -38,6 +38,7 @@ body {
   --color-accent-alt: #ffe146;
   --font-primary: "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: 'Mulish', var(--font-primary);
+  --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
 
   /* Apply Variables */
   --breadcrumbs-divider: "//";
@@ -45,4 +46,5 @@ body {
   --breadcrumbs-link-color: var(--color-black);
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
+
 }
