@@ -13,6 +13,6 @@
 .service-landing-page__service,
 .lgd-topic-list-builder__service,
 table {
-  border-top: var(--border-large);
-  border-top-color: var(--color-accent);
+  border-block-start: var(--border-large);
+  border-block-start-color: var(--color-accent);
 }
