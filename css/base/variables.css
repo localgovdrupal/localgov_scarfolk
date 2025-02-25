@@ -36,8 +36,7 @@ body {
   /* Set Variables */
   --color-accent: #01738f;
   --color-accent-alt: #ffe146;
-  --font-primary: "Open Sans", roboto, oxygen, ubuntu, cantarell,
-    "Helvetica Neue", sans-serif;
+  --font-primary: "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: "Mulish", var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
 
