@@ -4,3 +4,65 @@
  * @file
  * Theme functions for the LocalGov Drupal Scarfolk Council theme.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function localgov_scarfolk_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL): void {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
+
+
+  $form['localgov_scarfolk_settings']['theme_styles_fieldset'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Theme Styles'),
+    '#description' => t('Control various theme styles.'),
+  ];
+
+  $form['localgov_scarfolk_settings']['theme_styles_fieldset']['scarfolk_colour_accent'] = [
+    '#type' => 'textfield',
+    '#title' => t('Accent Colour'),
+    '#default_value' => theme_get_setting('colour_accent') ?: '',
+    '#description' => t('Select the accent colour for the theme.'),
+  ];
+
+  $form['localgov_scarfolk_settings']['theme_styles_fieldset']['scarfolk_line_height'] = [
+    '#type' => 'textfield',
+    '#title' => t('Line Height'),
+    '#default_value' => theme_get_setting('line_height') ?: '',
+    '#description' => t('Select the line height for the theme. Choose a number without "em" or "px", e.g. "1.5" or "2".'),
+  ];
+
+  $form['localgov_scarfolk_settings']['theme_styles_fieldset']['scarfolk_spacing_default'] = [
+    '#type' => 'textfield',
+    '#title' => t('Spacing Default'),
+    '#default_value' => theme_get_setting('spacing_default') ?: '',
+    '#description' => t('Select the default spacing for the theme. Choose a number with "rem" or "px", e.g. "1.5rem" or "20px".'),
+  ];
+
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function localgov_scarfolk_preprocess_html(&$variables): void {
+    // Add CSS variables for accent colour, line height, and default spacing.
+  if (!empty(theme_get_setting('colour_accent'))) {
+    $scarfolk_colour_accent = theme_get_setting('scarfolk_colour_accent');
+    $variables['attributes']['style'][] = '--color-accent: ' . $scarfolk_colour_accent . ';';
+  }
+
+  if (!empty(theme_get_setting('scarfolk_line_height'))) {
+    $scarfolk_line_height = theme_get_setting('scarfolk_line_height');
+    $variables['attributes']['style'][] = '--line-height: ' . $scarfolk_line_height . ';';
+  }
+
+  if (!empty(theme_get_setting('scarfolk_spacing_default'))) {
+    $scarfolk_spacing_default = theme_get_setting('scarfolk_spacing_default');
+    $variables['attributes']['style'][] = '--spacing: ' . $scarfolk_spacing_default . ';';
+  }
+}
